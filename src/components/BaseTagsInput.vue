@@ -6,7 +6,7 @@
     </p>
     <TagsInputRoot
       v-model="model"
-      class="flex gap-2 items-center border p-1 rounded-lg w-full flex-wrap bg-white min-h-[32px]"
+      class="flex gap-2 items-center border p-1 rounded w-full flex-wrap bg-white min-h-[32px]"
     >
       <TagsInputItem
         v-for="item in model"
