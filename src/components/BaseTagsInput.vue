@@ -6,7 +6,7 @@
     </p>
     <TagsInputRoot
       v-model="model"
-      class="flex gap-2 items-center border p-1 rounded-lg w-full flex-wrap bg-white"
+      class="flex gap-2 items-center border p-1 rounded-lg w-full flex-wrap bg-white min-h-[32px]"
     >
       <TagsInputItem
         v-for="item in model"
@@ -21,7 +21,7 @@
       </TagsInputItem>
 
       <TagsInputInput
-        placeholder="Fruits..."
+        :placeholder="placeholder"
         class="text-sm focus:outline-none flex-1 rounded bg-transparent px-1"
       />
     </TagsInputRoot>
