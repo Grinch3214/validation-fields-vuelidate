@@ -2,9 +2,13 @@
   <div>
     <label v-if="label" :for="id?.toString()" class="block text-xs"
       >{{ label }}
-      <span v-show="requireSymbol" class="text-sm text-red-400">*</span></label
+      <span v-show="requiredSymbol" class="text-sm text-red-400">*</span></label
     >
-    <input :type="type" :id="id?.toString()" class="border rounded w-full" />
+    <input
+      :type="type"
+      :id="id?.toString()"
+      class="border rounded w-full h-[32px]"
+    />
   </div>
 </template>
 
@@ -14,7 +18,7 @@ const props = withDefaults(
     type: string;
     id?: string | number;
     label?: string;
-    requireSymbol?: boolean;
+    requiredSymbol?: boolean;
   }>(),
   {
     type: "text",

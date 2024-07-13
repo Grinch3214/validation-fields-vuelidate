@@ -10,8 +10,10 @@ const tags = ref(["example"]);
 
 <template>
   <div class="container">
-    <BaseCheckbox v-model:checked="is_checked" />
-    <BaseTagsInput v-model="tags" />
-    <BaseInput type="text" id="25" label="Name" require-symbol />
+    <form class="max-w-[760px] mx-auto p-5 rounded shadow-md">
+      <!-- <BaseCheckbox v-model:checked="is_checked" /> -->
+      <BaseTagsInput v-model="tags" required-symbol label="Emails" />
+      <BaseInput type="text" id="25" label="Name" required-symbol />
+    </form>
   </div>
 </template>
