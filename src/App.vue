@@ -29,13 +29,13 @@
           label="Last Name"
           required-symbol
         />
-        <!-- <div
+        <div
           class="text-xs text-red-500"
-          v-for="error of v$.formData.lastName.$errors"
+          v-for="error of v$.lastName.$errors"
           :key="error.$uid"
         >
           <div class="error-msg">{{ error.$message }}</div>
-        </div> -->
+        </div>
       </div>
       <div>
         <BaseInput
@@ -45,13 +45,13 @@
           label="Email"
           required-symbol
         />
-        <!-- <div
+        <div
           class="text-xs text-red-500"
-          v-for="error of v$.formData.email.$errors"
+          v-for="error of v$.email.$errors"
           :key="error.$uid"
         >
           <div class="error-msg">{{ error.$message }}</div>
-        </div> -->
+        </div>
       </div>
       <div>
         <BaseInput
@@ -61,13 +61,13 @@
           label="Password"
           required-symbol
         />
-        <!-- <div
+        <div
           class="text-xs text-red-500"
-          v-for="error of v$.formData.password.$errors"
+          v-for="error of v$.password.$errors"
           :key="error.$uid"
         >
           <div class="error-msg">{{ error.$message }}</div>
-        </div> -->
+        </div>
       </div>
       <div>
         <BaseTagsInput
@@ -76,13 +76,13 @@
           label="Skills"
           placeholder="Vue.js, css, React, ets"
         />
-        <!-- <div
+        <div
           class="text-xs text-red-500"
-          v-for="error of v$.formData.tags.$errors"
+          v-for="error of v$.tags.$errors"
           :key="error.$uid"
         >
           <div class="error-msg">{{ error.$message }}</div>
-        </div> -->
+        </div>
       </div>
 
       <div class="mt-6 text-end">
@@ -102,7 +102,7 @@ import { ref, computed } from "vue";
 import BaseTagsInput from "./components/BaseTagsInput.vue";
 import BaseInput from "./components/BaseInput.vue";
 import { useVuelidate } from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, email, minLength, helpers } from "@vuelidate/validators";
 
 interface Form {
   firstName: string;
@@ -125,7 +125,13 @@ const rules = {
   lastName: { required },
   email: { required, email },
   password: { required },
-  tags: { required },
+  tags: {
+    required,
+    minLengthValue: helpers.withMessage(
+      "This field should be at least 2 tags long",
+      minLength(2)
+    ),
+  },
 };
 
 const v$ = useVuelidate(rules, formData);
