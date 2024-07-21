@@ -141,19 +141,19 @@ console.log(v$.value.formData);
 async function onSubmit() {
   const result = await v$.value.$validate();
 
-  console.log(result);
-  if (result) {
-    const tags = formData.value.tags.map((i) => i);
-
-    const data = {
-      firstName: formData.value.firstName,
-      lastName: formData.value.lastName,
-      email: formData.value.email,
-      password: formData.value.password,
-      tags: tags,
-    };
-
-    console.log(data);
+  if (!result) {
+    return alert("Not valid!");
   }
+
+  const tags = formData.value.tags.map((i) => i);
+  const data = {
+    firstName: formData.value.firstName,
+    lastName: formData.value.lastName,
+    email: formData.value.email,
+    password: formData.value.password,
+    tags: tags,
+  };
+  console.log(data);
+  alert("success");
 }
 </script>
