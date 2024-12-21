@@ -1,5 +1,6 @@
 <template>
   <div class="container my-10 text-sm">
+    <h2 class="uppercase text-lg text-center">TEst</h2>
     <form
       @submit.prevent="onSubmit"
       class="max-w-[760px] mx-auto p-5 rounded shadow-md border grid gap-2"
