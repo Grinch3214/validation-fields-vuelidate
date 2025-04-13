@@ -137,8 +137,6 @@ const rules = {
 
 const v$ = useVuelidate(rules, formData);
 
-console.log(v$.value.formData);
-
 async function onSubmit() {
   const result = await v$.value.$validate();
 
