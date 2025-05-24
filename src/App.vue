@@ -75,7 +75,7 @@
           v-model="formData.tags"
           required-symbol
           label="Skills"
-          placeholder="Vue.js, css, React, ets"
+          placeholder="Vue.js, Css, React, ets"
         />
         <div
           class="text-xs text-red-500"
